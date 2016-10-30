@@ -29,15 +29,15 @@ app.get("/speak/:animal", function(req, res){
 //visiting "/repeat/hello/5" should print out "hello hello hello hello hello"
 //visiting "/repeat/blah/2" should print out "blah blah"
 app.get("/repeat/:repeatWord/:repeatAmount", function(req, res){
-	function runCommand() {
 		var repeatWord = req.params.repeatWord;
-		var repeatAmount = parseInt(req.params.repeatAmount);
+		var repeatAmount = Number(req.params.repeatAmount);
+		var result = "";
 
-		for (var i = 0; i < repeatAmount.length; i++) {
-			console.log(repeatWord);
+		for (var i = 0; i < repeatAmount; i++) {
+			result += repeatWord + " ";
 		}
-	}
-	res.send(runCommand());
+	
+	res.send(result);
 });
 
 //if any other route print:
