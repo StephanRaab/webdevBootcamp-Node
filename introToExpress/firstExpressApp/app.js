@@ -10,34 +10,33 @@ app.get("/", function(req, res){
 //visiting "/speak/cow" should print "the cow says 'Moo'"
 //visiting "/speak/dog" should print "the dog says 'Woof'"
 app.get("/speak/:animal", function(req, res){
-	var animal = req.params.animal.toLowerCase();
+	var animal = req.params.animal;
 	var animalSound;
-	var sounds = {
-		dog: "woof",
-		cat: "'i hate you human'",
-		cow: "moo",
-		pig: "oink",
-		fish: "..."
-	}
- 
- animalSound = sounds[animal];
 
-	res.send("The "+ animal + " says " + animalSound + ".");
+	if (req.params.animal = "pig"){
+		animalSound = 'Oink';
+	} else if (req.params.animal = "cow"){
+		animalSound = "Moo";
+	} else {
+		animalSound = "Woof";
+	}
+
+	res.send("The "+ animal + " says " + animalSound);
 })
 
 //visiting "/repeat/hello/3" should print out "hello hello hello"
 //visiting "/repeat/hello/5" should print out "hello hello hello hello hello"
 //visiting "/repeat/blah/2" should print out "blah blah"
 app.get("/repeat/:repeatWord/:repeatAmount", function(req, res){
+	function runCommand() {
 		var repeatWord = req.params.repeatWord;
-		var repeatAmount = Number(req.params.repeatAmount);
-		var result = "";
+		var repeatAmount = parseInt(req.params.repeatAmount);
 
-		for (var i = 0; i < repeatAmount; i++) {
-			result += repeatWord + " ";
+		for (var i = 0; i < repeatAmount.length; i++) {
+			console.log(repeatWord);
 		}
-	
-	res.send(result);
+	}
+	res.send(runCommand());
 });
 
 //if any other route print:
