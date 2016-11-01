@@ -11,6 +11,16 @@ app.get("/thingsilove/:thing", function(req, res){
 
 	//thingVar is the variable inside of the love.ejs file
 	res.render("love.ejs", {thingVar: thing});
+});
+
+app.get("/posts", function(req, res) {
+	var posts = [
+		{title: "Intro",author: "b3l914n"},
+		{title: "Space", author: "Michael Jordan"},
+		{title: "Final post", author: "revelation"}
+	];
+
+	res.render("posts.ejs", {posts: posts});
 })
 
 app.listen(3000, function(){
