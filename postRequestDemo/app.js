@@ -10,7 +10,7 @@ app.get("/", function(req, res){
 	res.render("home");
 })
 
-var friends = ["Naruto", "Sasuke", "Itachi", "Kakashi", "Obito"];
+var friends = ["Jared", "Hai", "YungDan", "Stumbino"];
 
 app.get("/friends", function(req, res){
 	res.render("friends", { friends: friends });
